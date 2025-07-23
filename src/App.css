@@ -52,8 +52,12 @@ body {
   flex-direction: row;
   align-items: center;
   gap: 35px;
+  cursor: pointer;
 }
 
+.faq-item:hover {
+  color: #f47b56;
+}
 .faq-item-second {
   font-family: Kumbh Sans;
   font-weight: 400;
@@ -64,6 +68,11 @@ body {
   flex-direction: row;
   align-items: center;
   gap: 75px;
+  cursor: pointer;
+}
+
+.faq-item-second:hover {
+  color: #f47b56;
 }
 
 .faq-item-three {
@@ -76,6 +85,11 @@ body {
   flex-direction: row;
   align-items: center;
   gap: 44px;
+  cursor: pointer;
+}
+
+.faq-item-three:hover {
+  color: #f47b56;
 }
 
 .line {
