@@ -3,5 +3,5 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/faq-accordion-card-main/", // GitHub repo-ს სახელი
+  base: "/faq-accordion-card-main/",
 });
