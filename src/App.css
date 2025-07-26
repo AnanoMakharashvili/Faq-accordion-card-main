@@ -55,6 +55,18 @@ body {
   cursor: pointer;
 }
 
+.faq-answer {
+  font-size: 12px;
+  font-family: Kumbh Sans;
+  font-weight: 400;
+  line-height: 18px;
+  color: #787887;
+}
+
+.hidden {
+  display: none;
+}
+
 .faq-item:hover {
   color: #f47b56;
 }
@@ -67,7 +79,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 75px;
+  gap: 82px;
   cursor: pointer;
 }
 
