@@ -55,6 +55,18 @@ body {
   cursor: pointer;
 }
 
+.faq-item span {
+  color: gray;
+}
+
+.faq-item.open span {
+  color: #1e1f36;
+  font-family: Kumbh Sans;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 100%;
+}
+
 .faq-answer {
   font-size: 12px;
   font-family: Kumbh Sans;

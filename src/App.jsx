@@ -33,7 +33,7 @@ const Container = () => {
       </span>
       <span className="line"></span>
 
-      <div className="faq-item" onClick={toggleOpen}>
+      <div className={`faq-item ${isOpen ? "open" : ""}`} onClick={toggleOpen}>
         <span>What is the maximum file upload size?</span>
 
         <img
