@@ -132,4 +132,26 @@ body {
 }
 
 @media (min-width: 1024px) {
+  .accordion {
+    display: flex;
+  }
+
+  .women-online {
+    width: 500px;
+    transform: translate(-73px, -46px);
+  }
+
+  .main-header {
+    transform: translate(127px, 67px);
+  }
+
+  .faq-container {
+    margin: 50px;
+  }
+
+  .faq-item.open span,
+  .faq-item-second.open span,
+  .faq-item-three.open span {
+    font-size: 14px;
+  }
 }
