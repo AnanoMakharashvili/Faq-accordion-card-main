@@ -55,8 +55,15 @@ body {
   cursor: pointer;
 }
 
-.faq-item span {
-  color: gray;
+.faq-item.open span,
+.faq-item-second.open span,
+.faq-item-three.open span {
+  font-family: Kumbh Sans;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  color: #1e1f36;
 }
 
 .faq-item.open span {
@@ -124,25 +131,5 @@ body {
   top: 33px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+@media (min-width: 1024px) {
 }

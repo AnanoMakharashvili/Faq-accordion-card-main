@@ -21,56 +21,128 @@ const Main = () => {
 };
 
 const Container = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [openIndex, setOpenIndex] = useState(null);
 
-  const toggleOpen = () => setIsOpen((prev) => !prev);
+  const toggleOpen = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
 
   return (
     <div className="faq-container">
-      <span className="faq-item">
-        How many team members can I invite?
-        <img src={Arrow} alt="arrow icon" />
-      </span>
-      <span className="line"></span>
-
-      <div className={`faq-item ${isOpen ? "open" : ""}`} onClick={toggleOpen}>
-        <span>What is the maximum file upload size?</span>
-
+      <div
+        className={`faq-item ${openIndex === 0 ? "open" : ""}`}
+        onClick={() => toggleOpen(0)}
+      >
+        <span>How many team members can I invite?</span>
         <img
-          className={`arrow ${isOpen ? "hidden" : ""}`}
+          className={`arrow ${openIndex === 0 ? "hidden" : ""}`}
           src={Arrow}
           alt="arrow icon"
         />
         <img
-          className={`arrow ${isOpen ? "" : "hidden"}`}
+          className={`arrow ${openIndex === 0 ? "" : "hidden"}`}
           src={Rotated}
           alt="rotated arrow icon"
         />
       </div>
-
-      {isOpen && (
+      {openIndex === 0 && (
         <p className="faq-answer">
-          No more than 2GB. All files in your account <br /> must fit your
-          allotted storage space.
+          You can invite up to 5 team members to your project.
         </p>
       )}
-
       <span className="line"></span>
 
-      <span className="faq-item-second">
-        How do I reset my password?
-        <img src={Arrow} alt="arrow icon" />
-      </span>
+      <div
+        className={`faq-item ${openIndex === 1 ? "open" : ""}`}
+        onClick={() => toggleOpen(1)}
+      >
+        <span>What is the maximum file upload size?</span>
+        <img
+          className={`arrow ${openIndex === 1 ? "hidden" : ""}`}
+          src={Arrow}
+          alt="arrow icon"
+        />
+        <img
+          className={`arrow ${openIndex === 1 ? "" : "hidden"}`}
+          src={Rotated}
+          alt="rotated arrow icon"
+        />
+      </div>
+      {openIndex === 1 && (
+        <p className="faq-answer">
+          No more than 2GB. All files in your account must fit your allotted
+          storage space.
+        </p>
+      )}
       <span className="line"></span>
-      <span className="faq-item-second">
-        Can I cancel my subscription?
-        <img src={Arrow} alt="arrow icon" />
-      </span>
+
+      <div
+        className={`faq-item-second ${openIndex === 2 ? "open" : ""}`}
+        onClick={() => toggleOpen(2)}
+      >
+        <span>How do I reset my password?</span>
+        <img
+          className={`arrow ${openIndex === 2 ? "hidden" : ""}`}
+          src={Arrow}
+          alt="arrow icon"
+        />
+        <img
+          className={`arrow ${openIndex === 2 ? "" : "hidden"}`}
+          src={Rotated}
+          alt="rotated arrow icon"
+        />
+      </div>
+      {openIndex === 2 && (
+        <p className="faq-answer">
+          Click on 'Forgot Password' at login and follow instructions.
+        </p>
+      )}
       <span className="line"></span>
-      <span className="faq-item-three">
-        Do you provide additional support?
-        <img src={Arrow} alt="arrow icon" />
-      </span>
+
+      <div
+        className={`faq-item-second ${openIndex === 3 ? "open" : ""}`}
+        onClick={() => toggleOpen(3)}
+      >
+        <span>Can I cancel my subscription?</span>
+        <img
+          className={`arrow ${openIndex === 3 ? "hidden" : ""}`}
+          src={Arrow}
+          alt="arrow icon"
+        />
+        <img
+          className={`arrow ${openIndex === 3 ? "" : "hidden"}`}
+          src={Rotated}
+          alt="rotated arrow icon"
+        />
+      </div>
+      {openIndex === 3 && (
+        <p className="faq-answer">
+          Yes, you can cancel anytime from your account settings.
+        </p>
+      )}
+      <span className="line"></span>
+
+      <div
+        className={`faq-item-three ${openIndex === 4 ? "open" : ""}`}
+        onClick={() => toggleOpen(4)}
+      >
+        <span>Do you provide additional support?</span>
+        <img
+          className={`arrow ${openIndex === 4 ? "hidden" : ""}`}
+          src={Arrow}
+          alt="arrow icon"
+        />
+        <img
+          className={`arrow ${openIndex === 4 ? "" : "hidden"}`}
+          src={Rotated}
+          alt="rotated arrow icon"
+        />
+      </div>
+      {openIndex === 4 && (
+        <p className="faq-answer">
+          Yes, premium users have access to 24/7 support.
+        </p>
+      )}
       <span className="line"></span>
     </div>
   );
