@@ -16,6 +16,9 @@ body {
   border-radius: 23px;
   border: none;
   padding: 27px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
 .main-header {
@@ -134,6 +137,7 @@ body {
 @media (min-width: 1024px) {
   .accordion {
     display: flex;
+    flex-direction: row;
   }
 
   .women-online {
@@ -147,11 +151,5 @@ body {
 
   .faq-container {
     margin: 50px;
-  }
-
-  .faq-item.open span,
-  .faq-item-second.open span,
-  .faq-item-three.open span {
-    font-size: 14px;
   }
 }
