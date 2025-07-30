@@ -143,7 +143,6 @@ const Container = () => {
           Yes, premium users have access to 24/7 support.
         </p>
       )}
-      <span className="line"></span>
     </div>
   );
 };
