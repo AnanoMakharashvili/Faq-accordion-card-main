@@ -4,23 +4,36 @@ import Arrow from "./assets/icon-arrow-down.svg";
 import Rotated from "./assets/Path2.png";
 import { useState } from "react";
 
-const Header = () => {
-  return (
-    <header>
-      <img className="women-online" src={Icon} alt="woman-online" />
-    </header>
-  );
-};
+const accordionArr = [
+  {
+    question: "How many team members can I invite?",
+    answer: "You can invite up to 5 team members to your project.",
+    className: "faq-item",
+  },
+  {
+    question: "What is the maximum file upload size?",
+    answer:
+      "No more than 2GB. All files in your account must fit your allotted storage space.",
+    className: "faq-item",
+  },
+  {
+    question: "How do I reset my password?",
+    answer: "Click on 'Forgot Password' at login and follow instructions.",
+    className: "faq-item-second",
+  },
+  {
+    question: "Can I cancel my subscription?",
+    answer: "Yes, you can cancel anytime from your account settings.",
+    className: "faq-item-second",
+  },
+  {
+    question: "Do you provide additional support?",
+    answer: "Yes, premium users have access to 24/7 support.",
+    className: "faq-item-three",
+  },
+];
 
-const Main = () => {
-  return (
-    <main>
-      <h1 className="main-header">FAQ</h1>
-    </main>
-  );
-};
-
-const Container = () => {
+function App() {
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggleOpen = (index) => {
@@ -28,136 +41,43 @@ const Container = () => {
   };
 
   return (
-    <div className="faq-container">
-      <div
-        className={`faq-item ${openIndex === 0 ? "open" : ""}`}
-        onClick={() => toggleOpen(0)}
-      >
-        <span>How many team members can I invite?</span>
-        <img
-          className={`arrow ${openIndex === 0 ? "hidden" : ""}`}
-          src={Arrow}
-          alt="arrow icon"
-        />
-        <img
-          className={`arrow ${openIndex === 0 ? "" : "hidden"}`}
-          src={Rotated}
-          alt="rotated arrow icon"
-        />
-      </div>
-      {openIndex === 0 && (
-        <p className="faq-answer">
-          You can invite up to 5 team members to your project.
-        </p>
-      )}
-      <span className="line"></span>
-
-      <div
-        className={`faq-item ${openIndex === 1 ? "open" : ""}`}
-        onClick={() => toggleOpen(1)}
-      >
-        <span>What is the maximum file upload size?</span>
-        <img
-          className={`arrow ${openIndex === 1 ? "hidden" : ""}`}
-          src={Arrow}
-          alt="arrow icon"
-        />
-        <img
-          className={`arrow ${openIndex === 1 ? "" : "hidden"}`}
-          src={Rotated}
-          alt="rotated arrow icon"
-        />
-      </div>
-      {openIndex === 1 && (
-        <p className="faq-answer">
-          No more than 2GB. All files in your account must fit your allotted
-          storage space.
-        </p>
-      )}
-      <span className="line"></span>
-
-      <div
-        className={`faq-item-second ${openIndex === 2 ? "open" : ""}`}
-        onClick={() => toggleOpen(2)}
-      >
-        <span>How do I reset my password?</span>
-        <img
-          className={`arrow ${openIndex === 2 ? "hidden" : ""}`}
-          src={Arrow}
-          alt="arrow icon"
-        />
-        <img
-          className={`arrow ${openIndex === 2 ? "" : "hidden"}`}
-          src={Rotated}
-          alt="rotated arrow icon"
-        />
-      </div>
-      {openIndex === 2 && (
-        <p className="faq-answer">
-          Click on 'Forgot Password' at login and follow instructions.
-        </p>
-      )}
-      <span className="line"></span>
-
-      <div
-        className={`faq-item-second ${openIndex === 3 ? "open" : ""}`}
-        onClick={() => toggleOpen(3)}
-      >
-        <span>Can I cancel my subscription?</span>
-        <img
-          className={`arrow ${openIndex === 3 ? "hidden" : ""}`}
-          src={Arrow}
-          alt="arrow icon"
-        />
-        <img
-          className={`arrow ${openIndex === 3 ? "" : "hidden"}`}
-          src={Rotated}
-          alt="rotated arrow icon"
-        />
-      </div>
-      {openIndex === 3 && (
-        <p className="faq-answer">
-          Yes, you can cancel anytime from your account settings.
-        </p>
-      )}
-      <span className="line"></span>
-
-      <div
-        className={`faq-item-three ${openIndex === 4 ? "open" : ""}`}
-        onClick={() => toggleOpen(4)}
-      >
-        <span>Do you provide additional support?</span>
-        <img
-          className={`arrow ${openIndex === 4 ? "hidden" : ""}`}
-          src={Arrow}
-          alt="arrow icon"
-        />
-        <img
-          className={`arrow ${openIndex === 4 ? "" : "hidden"}`}
-          src={Rotated}
-          alt="rotated arrow icon"
-        />
-      </div>
-      {openIndex === 4 && (
-        <p className="faq-answer">
-          Yes, premium users have access to 24/7 support.
-        </p>
-      )}
-    </div>
-  );
-};
-
-const Line = () => {
-  return <div className="line"></div>;
-};
-
-function App() {
-  return (
     <div className="accordion">
-      <Header />
-      <Main />
-      <Container />
-      <Line />
+      <header>
+        <img className="women-online" src={Icon} alt="woman-online" />
+      </header>
+      <main>
+        <h1 className="main-header">FAQ</h1>
+        <div className="faq-container">
+          {accordionArr.map((item, index) => (
+            <div key={index} className="faq-item-wrapper">
+              <div
+                className={`${item.className} ${
+                  openIndex === index ? "open" : ""
+                }`}
+                onClick={() => toggleOpen(index)}
+              >
+                <span>{item.question}</span>
+                <img
+                  className={`arrow ${openIndex === index ? "hidden" : ""}`}
+                  src={Arrow}
+                  alt="arrow icon"
+                />
+                <img
+                  className={`arrow ${openIndex === index ? "" : "hidden"}`}
+                  src={Rotated}
+                  alt="rotated arrow icon"
+                />
+              </div>
+
+              {openIndex === index && (
+                <p className="faq-answer">{item.answer}</p>
+              )}
+
+              <span className="line"></span>
+            </div>
+          ))}
+        </div>
+      </main>
     </div>
   );
 }
